@@ -9,6 +9,7 @@ const SignUp = async (req, res, next) => {
       email: req.body.email,
       password: req.body.password,
       confirmPassword: req.body.confirmPassword,
+      jobApplied: req.body.appliedJobs,
     });
     res.status(200).json({
       status: 'success',
@@ -46,7 +47,7 @@ const Login = async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       //token,
-      data: { email: user.email, name: user.Username },
+      data: { email: user.email, name: user.Username, role: user.role },
     });
     next();
   } catch (err) {

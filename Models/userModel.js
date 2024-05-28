@@ -36,6 +36,25 @@ const usersSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
+  role: {
+    type: String,
+    default: 'user',
+  },
+  jobApplied: {
+    title: {
+      type: String,
+      unique: true,
+    },
+    description: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
+    salary: {
+      type: String,
+    },
+  },
 });
 // Runs when the data has been received from the browser and being taken to the database
 usersSchema.pre('save', async function (next) {
